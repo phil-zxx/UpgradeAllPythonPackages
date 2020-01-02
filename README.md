@@ -1,4 +1,4 @@
-# UpgradeAllPythonPackages
+# Upgrade All Python Packages
 Script which upgrades all outdated python packages. Written for Python `3.x`.
 
 ---
