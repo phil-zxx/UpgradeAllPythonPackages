@@ -3,11 +3,15 @@ import sys
 
 
 def print_python_vesion():
-    print(f'Python version =', '.'.join([str(x) for x in sys.version_info]), flush=True)
-    for path in sys.path:
-        print(f'>> {path}')
-    print('-' * 50, '\n', flush=True)
+    py_version = '.'.join([str(x) for x in sys.version_info])
+    print(f'>> Python version = {py_version}', flush=True)
+    print('-' * 41, flush=True)
     
+
+def filter_out_requ_already_satisfied(stdout):
+    filtered_lines = [line for line in stdout.split('\n') if 'Requirement already satisfied' not in line]
+    return '\n'.join(filtered_lines)
+
 
 def run_command(command):
     p = sp.Popen(command, stdout=sp.PIPE, stderr=sp.PIPE, shell=True)
@@ -24,9 +28,9 @@ def upgrade_pip():
 def upgrade_packages(packages):
     if len(packages) > 0:
         for i, package in enumerate(packages):
-            print(f'>> Upgrading {i}/{len(packages)}: \'{package}\'\n' + ('- ' * 21), flush=True)
+            print(f'>> Upgrading {i+1}/{len(packages)}: \'{package}\'\n' + ('- ' * 21), flush=True)
             stdout = run_command(f'pip install --upgrade {package}')
-            print(stdout + ('-' * 41), flush=True)
+            print(filter_out_requ_already_satisfied(stdout) + ('-' * 41), flush=True)
     else:
         print('>> Nothing to upgrade', flush=True)
 
