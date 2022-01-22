@@ -1,7 +1,6 @@
 # Upgrade All Python Packages
 Script which upgrades all outdated python packages. Written for Python `3.x`.
-
----
+<br><br>
 
 ### Usage
 Run the following command in the console:
