@@ -11,7 +11,7 @@ If everything is working, the output should look like this:
 ```
 >> Python version = 3.10.0.final.0
 -----------------------------------------
->> Upgrading pip ... Requirement already satisfied: pip in c:\python310_x64\lib\site-packages (21.2.1)
+>> Upgrading pip ... Requirement already satisfied: pip in lib\site-packages (21.2.1)
 Collecting pip
   Using cached pip-21.3.1-py3-none-any.whl (1.7 MB)
 Installing collected packages: pip
